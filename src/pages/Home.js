@@ -1,33 +1,36 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Platform, TouchableOpacity, TextInput, TouchableOpacityBase } from 'react-native';
+import { View, Text, StyleSheet, Platform, TouchableOpacity, TextInput  } from 'react-native';
 
 export default function Home(){
     const [newSkill, setNewSkill] = useState('');
     const [mySkills, setMySkills] = useState([]);
+
+   
 
     function handleAddNewSkill(){
         setMySkills(oldState => [...oldState, newSkill]);
     }
 
     return (
-        <View style={styles.container}>
+
+        <View  style={styles.container}>            
             <Text style={styles.title}>Olá, Prisco Cleyton </Text>        
             <TextInput
                 style={styles.input}
-                placeholder="New skill"
+                placeholder="Nova habilidade"
                 placeholderTextColor="#555"
-                onChangeText={setNewSkill}
+                onChangeText={setNewSkill}                
             />
             <TouchableOpacity
                 style={styles.button}
                 activeOpacity={.7}
                 onPress={handleAddNewSkill}
             >
-                <Text style={styles.buttonText}>Add</Text>
+                <Text style={styles.buttonText}>Adicionar</Text>
             </TouchableOpacity>
 
             <Text style={[styles.title, { marginVertical: 50}]}>
-                My Skills
+                Minhas Habilidades
             </Text>
 
             {
@@ -39,8 +42,9 @@ export default function Home(){
                     </TouchableOpacity>
                 ))
             }
-            
-        </View>
+      
+        </View >
+ 
     )
 }
 
